@@ -10,7 +10,9 @@ app.use(express.urlencoded({extended : true}));
 app.use(express.json());
 app.use(cors(
     {
-        origin : 'https://keepnote-clone.netlify.app/',
+        origin: 'https://keepnote-clone.netlify.app',
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Content-Type', 'Authorization'],
     }
 ));
 mongoose.connect(process.env.MONGODB_URI, {dbName : 'keepNotes'})
